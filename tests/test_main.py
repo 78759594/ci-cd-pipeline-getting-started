@@ -3,10 +3,11 @@ from selenium import webdriver
 from selenium.webdriver.common.by import By
 from selenium.webdriver.edge.service import Service as EdgeService
 import time
+from selenium.webdriver.edge.service import Service
+from webdriver.microsoft import EdgeChromiumDriverManager
 
-
-driver=webdriver.Edge("C:\Driver\edgedriver_win64\msedgedriver.exe")
-
+#driver=webdriver.Edge("C:\Driver\edgedriver_win64\msedgedriver.exe")
+driver=webdriver.Edge(service=Service(EdgeChromiumDriverManager().install()))
 driver.get("https://www.tutorialspoint.com/selenium/practice/login.php")
 
 username=driver.find_element(By.XPATH,"//*[@id='email']").send_keys("snavale1")
